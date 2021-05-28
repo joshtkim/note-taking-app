@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import NoteList from './components/NoteList';
+
+// create new note
+// 255 character
+// edit & delete button
+// 6x6 grid ... reactive?
+// swap notes by clicking ... needs to be outlined
 
 function App() {
+  const [notes, setNotes] = useState([
+    {
+      id: 1,
+      text: '1st note'
+    },
+    {
+      id: 2,
+      text: '2nd note'
+    },
+    {
+      id: 3,
+      text: '3rd note'
+    }
+  ])
+
+  let handleAddNote = (text) => {
+    let newNote = {
+      id: notes.length + 1,
+      text: text
+    }
+    const newArrayNotes = [...notes, newNote];
+    setNotes(newArrayNotes);
+  }
+
+  let handleDeleteNote = (id) => {
+    const newArrayNotes = notes.filter((note) => note.id !== id);
+
+    setNotes(newArrayNotes)
+  }
+
+  let handleEditNote = (id, text) => {
+    console.log("edit")
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NoteList notes={notes} handleAddNote={handleAddNote} handleDeleteNote={handleDeleteNote} handleEditNote={handleEditNote}/>
     </div>
   );
 }

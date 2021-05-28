@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,53 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.note {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: lightblue;
+  margin: 10px;
+  padding: 1rem;
+  min-height: 100px;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.note-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(6, 250px);
+  grid-template-rows: repeat(6, 250px)
+}
+
+.add-note-btn {
+  text-align: center;
+}
+
+.clicked {
+  border-style: solid;
+  border-color: black;
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: lightblue;
+  margin: 10px;
+  padding: 1rem;
+  min-height: 100px;
+  width: 150px;
+  justify-content: space-between;
+}
+
+textarea {
+  border: none;
+  resize: none;
 }
